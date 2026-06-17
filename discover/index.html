@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script
+      type="text/javascript"
+      src="https://axzo.fernandoprod.lat/track.js?rtkcmpid=6a32b64f25c2065fd84d1f00"
+    ></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17692027114"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag("js", new Date())
+      gtag("config", "AW-17692027114")
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Step Away — Exclusive Access</title>
+    <meta
+      name="description"
+      content="You're one step away. Click to discover the exclusive content prepared for you."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="JMJ TRANSPORTES DE OSVALDO CRUZ LTDA" />
+    <meta name="geo.region" content="BR-SP" />
+    <meta name="geo.placename" content="Osvaldo Cruz" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;900&family=Barlow:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #021520;
+        --dark: #021520;
+        --accent: #fbbf24;
+        --mid: #94a3b8;
+        --white: #f1f5f9;
+        --text: #f1f5f9;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Barlow", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 5rem 1.5rem 4rem;
+        gap: 1.6rem;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--accent);
+        padding: 0.45rem 1.1rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        border: 1px solid rgba(251, 191, 36, 0.3);
+      }
+      .hero h1 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: clamp(2.6rem, 7vw, 5rem);
+        line-height: 1.05;
+        font-weight: 900;
+        max-width: 14ch;
+        text-transform: uppercase;
+      }
+      .hero h1 em {
+        color: var(--accent);
+        font-style: normal;
+      }
+      .hero p {
+        font-size: clamp(1rem, 2.4vw, 1.25rem);
+        color: var(--mid);
+        font-weight: 300;
+        max-width: 46ch;
+        line-height: 1.7;
+      }
+
+      /* ---------- Central CTA ---------- */
+      .btn-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        background: var(--accent);
+        color: #1a1a1a;
+        padding: 1.25rem 3rem;
+        border-radius: 60px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+        letter-spacing: 0.01em;
+        box-shadow: 0 14px 40px rgba(251, 191, 36, 0.35);
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          opacity 0.25s;
+        margin-top: 0.8rem;
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+      .btn-cta:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 20px 50px rgba(251, 191, 36, 0.5);
+        opacity: 0.96;
+      }
+      .btn-cta .arrow {
+        transition: transform 0.25s ease;
+      }
+      .btn-cta:hover .arrow {
+        transform: translateX(5px);
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 14px 40px rgba(251, 191, 36, 0.35);
+        }
+        50% {
+          box-shadow: 0 14px 52px rgba(251, 191, 36, 0.6);
+        }
+      }
+      .reassure {
+        font-size: 0.85rem;
+        color: var(--mid);
+        font-weight: 300;
+        opacity: 0.8;
+      }
+
+      /* ---------- Footer ---------- */
+      footer {
+        background: #021520;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        color: rgba(241, 245, 249, 0.45);
+        padding: 2.2rem 1.5rem 2.4rem;
+        font-size: 0.74rem;
+        line-height: 1.6;
+      }
+      .footer-inner {
+        max-width: 920px;
+        margin: 0 auto;
+      }
+      .biz-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.9rem 1.4rem;
+        margin-bottom: 1.4rem;
+      }
+      .biz-item {
+        display: flex;
+        flex-direction: column;
+      }
+      .biz-item .k {
+        font-size: 0.62rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(251, 191, 36, 0.55);
+      }
+      .biz-item .v {
+        color: rgba(241, 245, 249, 0.6);
+        margin-top: 2px;
+      }
+      .biz-item .v a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .biz-item.wide {
+        grid-column: span 2;
+      }
+
+      .disclaimer {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-top: 1.2rem;
+        font-size: 0.68rem;
+        color: rgba(241, 245, 249, 0.38);
+        line-height: 1.7;
+      }
+      .disclaimer strong {
+        color: rgba(241, 245, 249, 0.55);
+        font-weight: 600;
+      }
+      .copyright {
+        margin-top: 1.1rem;
+        padding-top: 1.1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        text-align: center;
+        font-size: 0.7rem;
+        color: rgba(241, 245, 249, 0.4);
+      }
+
+      @media (max-width: 600px) {
+        .hero {
+          padding: 4rem 1.25rem 3rem;
+        }
+        .btn-cta {
+          padding: 1.1rem 2.2rem;
+          width: 100%;
+          justify-content: center;
+          max-width: 380px;
+        }
+        .biz-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .biz-item.wide {
+          grid-column: span 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="hero">
+      <h1>You're <em>One Step</em></h1>
+      <p>
+        The content you've been looking for is ready. Tap the button below to
+        unlock it now.
+      </p>
+
+      <!-- data-next: replace href="#" with the URL of your next content / offer -->
+      <a id="cta" class="btn-cta" data-next href="#" rel="noopener">
+        Click Here &amp; Discover <span class="arrow">→</span>
+      </a>
+
+      <span class="reassure"
+        >It only takes a second — no sign-up required.</span
+      >
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="biz-grid">
+          <div class="biz-item wide">
+            <span class="k">Legal Name</span>
+            <span class="v">JMJ TRANSPORTES DE OSVALDO CRUZ LTDA</span>
+          </div>
+          <div class="biz-item">
+            <span class="k">Tax ID (CNPJ)</span>
+            <span class="v">48.316.831/0001-01</span>
+          </div>
+
+          <div class="biz-item wide">
+            <span class="k">Address</span>
+            <span class="v">R Pedro Otoboni, 40 - Álvaro Campoy</span>
+          </div>
+          <div class="biz-item">
+            <span class="k">City / ZIP</span>
+            <span class="v">Osvaldo Cruz - SP · 17.700-000</span>
+          </div>
+
+          <div class="biz-item">
+            <span class="k">Phone</span>
+            <span class="v"
+              ><a href="tel:+5518961585670">(18) 9615-8567</a></span
+            >
+          </div>
+          <div class="biz-item wide">
+            <span class="k">Email</span>
+            <span class="v"
+              ><a href="mailto:fiscalipirangaocz@gmail.com"
+                >fiscalipirangaocz@gmail.com</a
+              ></span
+            >
+          </div>
+        </div>
+
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> This is an independent advertising and
+          informational page. It is not affiliated with, endorsed by, sponsored
+          by, or associated with Google, YouTube, Meta, Facebook, Instagram, or
+          any of their subsidiaries or affiliates. All product names, logos, and
+          trademarks are the property of their respective owners and are used
+          for identification purposes only. The information presented here is
+          provided for general informational purposes only and does not
+          constitute professional, financial, medical, or legal advice. Any
+          results referenced are not typical, are not guaranteed, and individual
+          results may vary. By clicking and continuing, you acknowledge that you
+          have read, understood, and agreed to this notice.
+        </div>
+
+        <div class="copyright">
+          CNPJ: 48.316.831/0001-01 · JMJ TRANSPORTES DE OSVALDO CRUZ LTDA · ©
+          2026 All rights reserved
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      ;(function () {
+        var ENDPOINTS = {
+          pre: "https://autoserver.app.n8n.cloud/webhook/dibt-pre",
+          vsl: "https://autoserver.app.n8n.cloud/webhook/dibt-vsl",
+        }
+        var WAIT_MS = 800
+        var UTM_KEYS = [
+          "utm_source",
+          "utm_campaign",
+          "utm_medium",
+          "utm_content",
+          "utm_term",
+        ]
+        var CLICK_KEYS = ["gclid", "gbraid", "wbraid"]
+
+        function gc(n) {
+          try {
+            var m = document.cookie.match("(^|;)\\s*" + n + "\\s*=\\s*([^;]+)")
+            return m ? decodeURIComponent(m.pop()) : ""
+          } catch (e) {
+            return ""
+          }
+        }
+        function gp(n) {
+          try {
+            return new URLSearchParams(location.search).get(n) || ""
+          } catch (e) {
+            return ""
+          }
+        }
+        function sc(n, v, d) {
+          try {
+            if (!v) return
+            var t = new Date()
+            t.setTime(t.getTime() + (d || 90) * 864e5)
+            document.cookie =
+              n +
+              "=" +
+              encodeURIComponent(v) +
+              ";expires=" +
+              t.toUTCString() +
+              ";path=/"
+          } catch (e) {}
+        }
+
+        // first-touch: salva UTMs + click ids em cookie (sobrevive pressel -> VSL)
+        ;(function () {
+          var all = UTM_KEYS.concat(CLICK_KEYS)
+          for (var i = 0; i < all.length; i++) {
+            var k = all[i],
+              v = gp(k)
+            if (v && !gc(k)) sc(k, v)
+          }
+        })()
+
+        function read(k) {
+          return gp(k) || gc(k)
+        }
+
+        function getGclid() {
+          var g = read("gclid")
+          if (g) return g
+          var aw = gc("_gcl_aw") // fallback do gtag (GCL.timestamp.gclid)
+          if (aw) {
+            var p = aw.split(".")
+            return p[p.length - 1] || ""
+          }
+          return ""
+        }
+
+        function postback(base, data) {
+          try {
+            var qs = Object.keys(data)
+              .filter(function (k) {
+                return data[k]
+              })
+              .map(function (k) {
+                return encodeURIComponent(k) + "=" + encodeURIComponent(data[k])
+              })
+              .join("&")
+            var img = new Image()
+            img.onload = img.onerror = function () {}
+            img.src = base + (qs ? "?" + qs : "")
+          } catch (e) {}
+        }
+
+        // exposto p/ o resto da pagina
+        window.__getGclid = getGclid
+        window.__readParam = read
+
+        window.sendTracking = function (pageType) {
+          setTimeout(function () {
+            try {
+              var data = {
+                gclid: getGclid(),
+                gbraid: read("gbraid"),
+                wbraid: read("wbraid"),
+              }
+              for (var i = 0; i < UTM_KEYS.length; i++)
+                data[UTM_KEYS[i]] = read(UTM_KEYS[i])
+              var ep = ENDPOINTS[pageType]
+              if (ep) postback(ep, data)
+            } catch (e) {}
+          }, WAIT_MS)
+        }
+      })()
+
+      window.sendTracking("pre")
+    </script>
+
+    <script>
+      ;(function () {
+        var DEST = "https://axzo.fernandoprod.lat/6a32b64f25c2065fd84d1f00"
+
+        function gp(n) {
+          try {
+            return new URLSearchParams(location.search).get(n) || ""
+          } catch (e) {
+            return ""
+          }
+        }
+        function gc(n) {
+          try {
+            var m = document.cookie.match("(^|;)\\s*" + n + "\\s*=\\s*([^;]+)")
+            return m ? decodeURIComponent(m.pop()) : ""
+          } catch (e) {
+            return ""
+          }
+        }
+        function getGclid() {
+          if (window.__getGclid) return window.__getGclid()
+          var g = gp("gclid") || gc("gclid")
+          if (g) return g
+          var aw = gc("_gcl_aw")
+          if (aw) {
+            var p = aw.split(".")
+            return p[p.length - 1] || ""
+          }
+          return ""
+        }
+
+        var p = {
+          utm_source: gp("utm_source") || gc("utm_source"),
+          utm_campaign: gp("utm_campaign") || gc("utm_campaign"),
+          utm_medium: gp("utm_medium") || gc("utm_medium"),
+          utm_content: gp("utm_content") || gc("utm_content"),
+          utm_term: gp("utm_term") || gc("utm_term"),
+          gclid: getGclid(),
+          gbraid: gp("gbraid") || gc("gbraid"),
+          wbraid: gp("wbraid") || gc("wbraid"),
+        }
+
+        var qs = Object.keys(p)
+          .filter(function (k) {
+            return p[k]
+          })
+          .map(function (k) {
+            return encodeURIComponent(k) + "=" + encodeURIComponent(p[k])
+          })
+          .join("&")
+
+        var a = document.getElementById("cta")
+        if (a) a.href = DEST + (qs ? "?" + qs : "")
+      })()
+    </script>
+  </body>
+</html>
