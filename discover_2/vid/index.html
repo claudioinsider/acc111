@@ -6,124 +6,6 @@
       src="https://axzo.fernandoprod.lat/track.js?rtkcmpid=6a35c4dee5120fbd4b6b81d8"
     ></script>
 
-    <!-- Captura + persistência + webhook -->
-    <script>
-      ;(function () {
-        var ENDPOINTS = {
-          pre: "https://autoserver.app.n8n.cloud/webhook/dibt-pre",
-          vsl: "https://autoserver.app.n8n.cloud/webhook/dibt-vsl",
-        }
-        var WAIT_MS = 800
-        var UTM_KEYS = [
-          "utm_source",
-          "utm_campaign",
-          "utm_medium",
-          "utm_content",
-          "utm_term",
-        ]
-        // rtkcid = click id do RedTrack (a chave que amarra tudo nesta VSL)
-        var CLICK_KEYS = ["gclid", "gbraid", "wbraid", "rtkcid"]
-
-        function gc(n) {
-          try {
-            var m = document.cookie.match("(^|;)\\s*" + n + "\\s*=\\s*([^;]+)")
-            return m ? decodeURIComponent(m.pop()) : ""
-          } catch (e) {
-            return ""
-          }
-        }
-        function gp(n) {
-          try {
-            return new URLSearchParams(location.search).get(n) || ""
-          } catch (e) {
-            return ""
-          }
-        }
-        function sc(n, v, d) {
-          try {
-            if (!v) return
-            var t = new Date()
-            t.setTime(t.getTime() + (d || 90) * 864e5)
-            document.cookie =
-              n +
-              "=" +
-              encodeURIComponent(v) +
-              ";expires=" +
-              t.toUTCString() +
-              ";path=/"
-          } catch (e) {}
-        }
-
-        // first-touch: salva UTMs + click ids em cookie
-        ;(function () {
-          var all = UTM_KEYS.concat(CLICK_KEYS)
-          for (var i = 0; i < all.length; i++) {
-            var k = all[i],
-              v = gp(k)
-            if (v && !gc(k)) sc(k, v)
-          }
-        })()
-
-        function read(k) {
-          return gp(k) || gc(k)
-        }
-
-        function getGclid() {
-          var g = read("gclid")
-          if (g) return g
-          var aw = gc("_gcl_aw") // fallback do gtag (GCL.timestamp.gclid)
-          if (aw) {
-            var p = aw.split(".")
-            return p[p.length - 1] || ""
-          }
-          return ""
-        }
-
-        function postback(base, data) {
-          try {
-            var qs = Object.keys(data)
-              .filter(function (k) {
-                return data[k]
-              })
-              .map(function (k) {
-                return encodeURIComponent(k) + "=" + encodeURIComponent(data[k])
-              })
-              .join("&")
-            var img = new Image()
-            img.onload = img.onerror = function () {}
-            img.src = base + (qs ? "?" + qs : "")
-          } catch (e) {}
-        }
-
-        window.sendTracking = function (pageType) {
-          setTimeout(function () {
-            try {
-              var data = {
-                gclid: getGclid(),
-                gbraid: read("gbraid"),
-                wbraid: read("wbraid"),
-                rtkcid: read("rtkcid"), // click id do RedTrack
-              }
-              for (var i = 0; i < UTM_KEYS.length; i++)
-                data[UTM_KEYS[i]] = read(UTM_KEYS[i])
-              var ep = ENDPOINTS[pageType]
-              if (ep) postback(ep, data)
-            } catch (e) {}
-          }, WAIT_MS)
-        }
-      })()
-
-      window.sendTracking("vsl")
-    </script>
-
-    <!--
-      ATENCAO: o iframe oculto que disparava hop.clickbank.net no load
-      foi REMOVIDO de proposito. Era cookie stuffing (forca o cookie de
-      afiliado sem clique) — viola os termos da ClickBank, pode banir a
-      conta e atropela a atribuicao do RedTrack que esta pagina usa.
-      Se quiser ClickBank de forma legitima, dispare o hoplink no clique real.
-    -->
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Discover-2</title>
@@ -743,6 +625,19 @@
         }
       }
 
+      function handleInitiateCheckoutPostbackUrlPostback() {
+        const clickid = getParameterByName("rtkcid")
+
+        if (clickid) {
+          const InitiateCheckoutPostbackUrl = `https://kujvy.ttrk.io/postback?clickid=${clickid}&type=InitiateCheckout`
+          sendPostback(InitiateCheckoutPostbackUrl)
+        } else {
+          console.log(
+            "Parâmetro rtkcid não encontrado na URL para InitiateCheckout",
+          )
+        }
+      }
+
       // Função chamada ao clicar na <a>
       function handleCheckoutLinkClick(event) {
         event.preventDefault() // impede a navegação automática
@@ -754,7 +649,10 @@
 
         // Usa URL para tratar query string certinho
         const url = new URL(href, window.location.href)
-        url.searchParams.set("sub16", "L1") // adiciona ou substitui sub16=L1
+        url.searchParams.set("sub16", "L2") // adiciona ou substitui sub16=L1
+
+        // dispara o postback de InitiateCheckout
+        // handleInitiateCheckoutPostbackUrlPostback()
 
         // redireciona (funciona no iPhone/Safari)
         window.location.href = url.toString()
