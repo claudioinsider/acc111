@@ -578,15 +578,20 @@
         // utm_term vem como "{placement}::{keyword}" -> separa o placement
         const placement = get("utm_term").split("::")[0] || get("placement")
 
+        // Valores reaproveitados
+        const campaignid = get("utm_campaign") // {campaignid}
+        const adgroupid = get("utm_medium") // {adgroupid}
+        const creative = get("utm_content") // {creative}
+
         // Mapa: parâmetro NO DESTINO  ->  valor vindo da URL atual
         const map = {
           utm_source: "Google", // fixo
-          utm_campaign: get("utm_campaign"), // {campaignid} que chegou
+          utm_campaign: campaignid, // {campaignid} que chegou
           sub2: get("keyword"), // {keyword}
           sub3: get("matchtype"), // precisa estar no template
-          sub4: get("utm_medium"), // {adgroupid}
-          sub5: get("utm_content"), // {creative}
-          sub6: get("utm_campaign"), // {campaignid}
+          sub4: adgroupid, // {adgroupid}
+          sub5: creative, // {creative}
+          sub6: campaignid, // {campaignid}
           sub7: get("device"), // {device}
           sub8: get("adposition"), // precisa estar no template
           sub9: get("network"), // {network}
@@ -600,6 +605,16 @@
           sub18: get("conjunto"), // {_conjunto}
           sub19: get("oferta"), // {_oferta}
           sub20: get("anuncio"), // {_anuncio}
+
+          // ---- aff sub 1 a 3 ----
+          aff_sub1: campaignid, // 1 = campaignid
+          aff_sub2: adgroupid, // 2 = adgroupid
+          aff_sub3: creative, // 3 = creative
+
+          // ---- unique aff sub 1 a 3 ----
+          unique_aff_sub1: campaignid, // 1 = campaignid
+          unique_aff_sub2: adgroupid, // 2 = adgroupid
+          unique_aff_sub3: creative, // 3 = creative
         }
 
         // Monta a query só com o que tem valor
@@ -608,7 +623,7 @@
           if (map[k]) out.set(k, map[k])
         })
 
-        const destino = "https://axzo.fernandoprod.lat/6a35c4dee5120fbd4b6b81d8"
+        const destino = "https://axzo.fernandoprod.lat/6a32b64f25c2065fd84d1f00"
         const cta = document.getElementById("cta")
         if (cta) cta.href = destino + "?" + out.toString()
       })()
